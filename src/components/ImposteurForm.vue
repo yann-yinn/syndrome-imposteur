@@ -54,13 +54,12 @@ export default {
         [questionId]: answerId
       };
       let result = 0;
-      for (let [questionId, score] of Object.entries(this.answers)) {
+      for (let [, score] of Object.entries(this.answers)) {
         result = result + score;
       }
       this.result = result;
     },
     choiceIsActive({ questionId, answerId }) {
-      console.log(questionId, answerId);
       if (this.answers[questionId]) {
         if (answerId === this.answers[questionId]) {
           return true;
