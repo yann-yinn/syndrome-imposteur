@@ -87,10 +87,17 @@
           <a
             href="https://syndromeimposteur.fr"
             class="submit button call-to-action is-info is-large"
-            @click="onBackClick"
           >
             Comment se libérer du syndrome de l'imposteur ?
           </a>
+        </div>
+        <div style="margin-top:40px" class="has-text-centered">
+          <button
+            class="submit button call-to-action is-large"
+            @click="onBackClick"
+          >
+            Revenir au questionnaire
+          </button>
         </div>
       </div>
     </template>
