@@ -10,7 +10,9 @@
       </div>
     </header>
     <div class="container">
-      <ImposteurForm />
+      <div class="section">
+        <ImposteurForm />
+      </div>
     </div>
   </div>
 </template>

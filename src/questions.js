@@ -1,6 +1,22 @@
 export default [
-  "J'ai souvent réussi à un test ou à accomplir une tâche alors que j'avais peur de ne pas y arriver",
-  "Je peux donner l'impression d'être plus compétent-e que je ne le suis vraiment",
-  "J'évite les évaluations quand c'est possible et je suis terrifié-e que les autres m'évaluent",
-  "Quand des gens me félicitent pour quelque chose que j'ai accompli, j'ai peur de ne pas être capable d'être à la hauteur de leurs attentes dans le futur"
+  "J’ai souvent réussi à un test ou à accomplir une tâche alors que j’avais peur de ne pas y arriver avant de commencer. ",
+  "Je peux donner l’impression d’être plus compétent(e) que je ne le suis vraiment.",
+  "J’évite les évaluations quand c’est possible et je suis terrifié(e) que les autres m’évaluent.",
+  "Quand des gens me félicitent pour quelque chose que j’ai accompli, j’ai peur de ne pas être capable d’être à la hauteur de leurs attentes dans le futur.",
+  "Je pense parfois que j’ai obtenu ma position actuelle ou mon succès actuel parce que j’étais au bon endroit au bon moment ou parce que je connais les bonnes personnes.",
+  "J’ai peur que les gens qui comptent pour moi découvrent que je ne suis pas aussi capable qu’ils le pensent.",
+  "J’ai tendance à mieux me souvenir des fois où je n’ai pas fait de mon mieux que des fois où j’ai fait de mon mieux.",
+  "Je réussis rarement à réaliser un projet ou une tâche aussi bien que je le souhaiterais.",
+  "Parfois j’ai l’impression ou la certitude que mes succès personnels ou professionnels sont le résultat d’une sorte d’erreur",
+  "C’est difficile pour moi d’accepter les compliments ou éloges sur mon intelligence ou mes accomplissements.",
+  "Parfois, je pense que mon succès est dû à une sorte de chance",
+  "Je suis parfois déçu(e) de mes accomplissements actuels et je pense que j’aurais dû accomplir beaucoup plus.",
+  "Parfois j’ai peur que les autres découvrent à quel point certains savoirs ou compétences me font défaut.",
+  "J’ai souvent peur d’échouer face à une nouvelle demande alors qu’en général je réussis bien ce que j’entreprends",
+  "Quand j’ai réussi quelque chose et reçu de la reconnaissance pour cet accomplissement, je doute d’être capable de répéter ce succès",
+  "Si je reçois beaucoup d’éloges et de reconnaissance pour quelque chose que j’ai accompli, j’ai tendance à minimiser l’importance de ce que j’ai fait.",
+  "Je compare souvent mes capacités à celles de mon entourage et je pense qu’ils pourraient être plus intelligents que moi",
+  "Je m’inquiète souvent de ne pas réussir un projet ou un examen alors que mon entourage à confiance dans l’idée que je vais y arriver.",
+  "Si je suis sur le point de recevoir une promotion ou une forme de reconnaissance, j’hésite à le dire aux autres avant que ce soit un fait accompli. ",
+  "Je me sens mal et découragé(e) si je ne suis pas « le/la meilleur(e) » ou au moins « très spécial(e) » dans les situations qui impliquent la réussite."
 ];

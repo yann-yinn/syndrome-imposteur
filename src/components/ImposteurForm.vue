@@ -45,7 +45,7 @@
     </template>
 
     <template v-if="showResults === true">
-      <div class="button" @click="onBackClick">< retour au questionnaire</div>
+      <div class="button" @click="onBackClick">Retour au questionnaire</div>
       <div class="results">
         <p>score total: {{ result }}</p>
       </div>
