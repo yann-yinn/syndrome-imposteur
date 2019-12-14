@@ -84,9 +84,13 @@
           la vie d’une personne.
         </p>
         <div style="margin-top:40px" class="has-text-centered">
-          <button class="submit button is-info is-large" @click="onBackClick">
-            Retour au questionnaire
-          </button>
+          <a
+            href="https://syndromeimposteur.fr"
+            class="submit button call-to-action is-info is-large"
+            @click="onBackClick"
+          >
+            Comment se libérer du syndrome de l'imposteur ?
+          </a>
         </div>
       </div>
     </template>
@@ -163,10 +167,12 @@ export default {
   padding-top: 40px;
 }
 
+.submit {
+  white-space: unset;
+  height: auto;
+}
+
 @media screen and (max-width: 769px) {
-  .submit {
-    font-size: 19px;
-  }
   .question-choice button {
     min-width: 200px;
   }
