@@ -42,9 +42,9 @@
         <button
           style="margin: 40px 0"
           @click="onSubmit"
-          class="button is-large is-info"
+          class="button is-large is-info submit"
         >
-          CALCULER MON SCORE FINAL
+          CALCULER MON SCORE
         </button>
       </div>
     </template>
@@ -84,7 +84,7 @@
           la vie d’une personne.
         </p>
         <div style="margin-top:40px" class="has-text-centered">
-          <button class="button is-info is-large" @click="onBackClick">
+          <button class="submit button is-info is-large" @click="onBackClick">
             Retour au questionnaire
           </button>
         </div>
@@ -164,8 +164,11 @@ export default {
 }
 
 @media screen and (max-width: 769px) {
+  .submit {
+    font-size: 19px;
+  }
   .question-choice button {
-    min-width: 300px;
+    min-width: 200px;
   }
 }
 </style>

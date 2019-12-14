@@ -7,18 +7,30 @@
   src: url("https://fonts.gstatic.com/s/josefinslab/v10/lW-mwjwOK3Ps5GSJlNNkMalvESu6KerlFAke7w.woff2");
 }
 
-.navbar {
+.navigation {
   background-color: #74cfe2;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
 }
 
-.navbar .navbar-item {
+.navigation .item a {
   color: #044389;
   font-family: "abril fatface", georgia, serif;
-  font-size: 19.2px;
+  font-size: 19px;
 }
 
-#app .navbar-item img {
+.navigation .item img {
   max-height: 55px;
+}
+
+.navigation .item .identity strong {
+  position: relative;
+  top: -25px;
+}
+
+.navigation .item .back-to-site {
+  color: white;
 }
 
 header {
@@ -30,14 +42,6 @@ header {
   background-position: top left;
   background-size: 400px;
   background-position: left 30px;
-}
-
-@media screen and (max-width: 769px) {
-  header {
-    background-position: center 30px;
-    background-size: 140px;
-    padding-top: 170px;
-  }
 }
 
 header .title {
@@ -52,4 +56,12 @@ header .subtitle {
   font-family: "josefin slab", georgia, serif;
   padding-top: 20px;
   color: white;
+}
+
+@media screen and (max-width: 769px) {
+  header {
+    background-position: center 30px;
+    background-size: 140px;
+    padding-top: 170px;
+  }
 }
