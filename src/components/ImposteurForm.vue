@@ -1,6 +1,11 @@
 <template>
   <div class="imposteur-form">
     <template v-if="showResults === false">
+      <p>
+        Le <em>Test de l’Imposteur</em> a été développé pour aider les personnes
+        à déterminer si elles ont ou non des caractéristiques du Phénomène de
+        l’Imposteur et, si c’est le cas, à quel point elles en souffrent.
+      </p>
       <div
         class="question"
         v-for="(question, questionIndex) in questions"
@@ -45,9 +50,43 @@
     </template>
 
     <template v-if="showResults === true">
-      <div class="button" @click="onBackClick">Retour au questionnaire</div>
-      <div class="results">
-        <p>score total: {{ result }}</p>
+      <h2 style="padding-top:40px" class="title is-1 has-text-centered">
+        votre score : {{ result }}
+      </h2>
+
+      <div style="margin:40px 0" class="results content">
+        <h3 v-show="result < 41">
+          Vous présentez peu de caractéristiques de l’Imposteur.
+        </h3>
+        <h3 v-show="result > 40 && result < 61">
+          Vous présentez une expérience modérée du phénomène de l’imposteur.
+        </h3>
+        <h3 v-show="result > 60">
+          Vous faites souvent d’intenses expériences du phénomène de
+          l’Imposteur.
+        </h3>
+      </div>
+
+      <div class="content">
+        <p>
+          Plus le score est élevé, plus le Phénomène de l’imposteur interfère
+          fréquemment et lourdement dans la vie d’une personne.
+        </p>
+        <p>
+          Si le total est de 40 ou moins, le répondant a peu de caractéristiques
+          de l’Imposteur ; si le résultat est entre 41 et 60, le répondant a une
+          expérience modérée du phénomène de l’imposteur ; un score entre 61 et
+          80 signifie que le répondant a des sentiment d’imposteur ; et un score
+          supérieur à 80 signifie que le répondant a souvent d’intenses
+          expériences du phénomène de l’Imposteur. Plus le score est élevé, plus
+          le Phénomène de l’imposteur interfère fréquemment et lourdement dans
+          la vie d’une personne.
+        </p>
+        <div style="margin-top:40px" class="has-text-centered">
+          <button class="button is-info is-large" @click="onBackClick">
+            Retour au questionnaire
+          </button>
+        </div>
       </div>
     </template>
   </div>
@@ -119,11 +158,6 @@ export default {
 </script>
 
 <style scoped>
-.imposteur-form {
-  max-width: 700px;
-  margin: auto;
-}
-
 .question {
   padding-top: 40px;
 }
@@ -132,10 +166,5 @@ export default {
   .question-choice button {
     min-width: 300px;
   }
-}
-
-.results {
-  font-size: 70px;
-  padding: 40px;
 }
 </style>

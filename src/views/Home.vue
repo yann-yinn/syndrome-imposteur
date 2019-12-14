@@ -9,7 +9,7 @@
         <h2 class="subtitle">Échelle de Clance</h2>
       </div>
     </header>
-    <div class="container">
+    <div style="max-width: 700px" class="container">
       <div class="section">
         <ImposteurForm />
       </div>
