@@ -2,43 +2,65 @@
   <div class="imposteur-form">
     <template v-if="showResults === false">
       <div class="question" v-for="(question, index) in questions" :key="index">
-        <div class="question-title">{{question}}</div>
+        <div class="question-title">{{ question }}</div>
         <div class="question-choices">
           <div
-            @click="onChoiceClick({questionId: index, answerId: 1})"
-            :class="{'is-active': choiceIsActive({questionId: index, answerId: 1})}"
+            @click="onChoiceClick({ questionId: index, answerId: 1 })"
+            :class="{
+              'is-active': choiceIsActive({ questionId: index, answerId: 1 })
+            }"
             class="question-choice"
-          >1 - Pas du tout vrai</div>
+          >
+            1 - Pas du tout vrai
+          </div>
           <div
-            @click="onChoiceClick({questionId: index, answerId: 2})"
-            :class="{'is-active': choiceIsActive({questionId: index, answerId: 2})}"
+            @click="onChoiceClick({ questionId: index, answerId: 2 })"
+            :class="{
+              'is-active': choiceIsActive({ questionId: index, answerId: 2 })
+            }"
             class="question-choice"
-          >2 - Rarement</div>
+          >
+            2 - Rarement
+          </div>
           <div
-            @click="onChoiceClick({questionId: index, answerId: 3})"
-            :class="{'is-active': choiceIsActive({questionId: index, answerId: 3})}"
+            @click="onChoiceClick({ questionId: index, answerId: 3 })"
+            :class="{
+              'is-active': choiceIsActive({ questionId: index, answerId: 3 })
+            }"
             class="question-choice"
-          >3 - Parfois</div>
+          >
+            3 - Parfois
+          </div>
           <div
-            @click="onChoiceClick({questionId: index, answerId: 4})"
-            :class="{'is-active': choiceIsActive({questionId: index, answerId: 4})}"
+            @click="onChoiceClick({ questionId: index, answerId: 4 })"
+            :class="{
+              'is-active': choiceIsActive({ questionId: index, answerId: 4 })
+            }"
             class="question-choice"
-          >4 - Souvent</div>
+          >
+            4 - Souvent
+          </div>
           <div
-            @click="onChoiceClick({questionId: index, answerId: 5})"
-            :class="{'is-active': choiceIsActive({questionId: index, answerId: 5})}"
+            @click="onChoiceClick({ questionId: index, answerId: 5 })"
+            :class="{
+              'is-active': choiceIsActive({ questionId: index, answerId: 5 })
+            }"
             class="question-choice"
-          >5 - Très vrai</div>
+          >
+            5 - Très vrai
+          </div>
         </div>
       </div>
       <div style="padding-top:40px;" class="control has-text-centered">
-        <button @click="onSubmit" class="button is-large is-info">Calculer mon score final</button>
+        <button @click="onSubmit" class="button is-large is-info">
+          Calculer mon score final
+        </button>
       </div>
     </template>
     <template v-if="showResults === true">
       <div class="back" @click="onBackClick">< retour au questionnaire</div>
       <div class="results">
-        <p>score total: {{result}}</p>
+        <p>score total: {{ result }}</p>
         <p>
           <img src="https://media.giphy.com/media/3jmkremp3N2ow/giphy.gif" />
         </p>

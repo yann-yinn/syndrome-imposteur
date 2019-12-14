@@ -8,12 +8,12 @@
 
 <script>
 // @ is an alias to /src
-import ImposteurForm from '@/components/ImposteurForm.vue'
+import ImposteurForm from "@/components/ImposteurForm.vue";
 
 export default {
-  name: 'home',
+  name: "home",
   components: {
     ImposteurForm
   }
-}
+};
 </script>
