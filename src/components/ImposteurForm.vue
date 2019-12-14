@@ -50,9 +50,14 @@
     </template>
 
     <template v-if="showResults === true">
-      <h2 style="padding-top:40px" class="title is-1 has-text-centered">
-        votre score : {{ result }}
+      <h2 style="margin:40px 0" class="title is-1 has-text-centered">
+        votre score : {{ result }} / 100
       </h2>
+
+      <p>
+        Plus le score est élevé, plus le phénomène de l’imposteur interfère
+        fréquemment et lourdement dans la vie d’une personne.
+      </p>
 
       <div style="margin:40px 0" class="results content">
         <h3 v-show="result < 41">
@@ -68,10 +73,6 @@
       </div>
 
       <div class="content">
-        <p>
-          Plus le score est élevé, plus le Phénomène de l’imposteur interfère
-          fréquemment et lourdement dans la vie d’une personne.
-        </p>
         <p>
           Si le total est de 40 ou moins, le répondant a peu de caractéristiques
           de l’Imposteur ; si le résultat est entre 41 et 60, le répondant a une
