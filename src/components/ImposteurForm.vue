@@ -1,75 +1,68 @@
 <template>
   <div class="imposteur-form">
     <template v-if="showResults === false">
-      <div class="question" v-for="(question, index) in questions" :key="index">
-        <div class="question-title">{{ question }}</div>
-        <div class="question-choices">
+      <div
+        class="question"
+        v-for="(question, questionIndex) in questions"
+        :key="questionIndex"
+      >
+        <h2 class="title is-5">{{ question }}</h2>
+        <div class="columns">
           <div
-            @click="onChoiceClick({ questionId: index, answerId: 1 })"
-            :class="{
-              'is-active': choiceIsActive({ questionId: index, answerId: 1 })
-            }"
-            class="question-choice"
+            v-for="(choice, choiceIndex) in choices"
+            :key="choiceIndex"
+            class="column has-text-centered question-choice"
           >
-            1 - Pas du tout vrai
-          </div>
-          <div
-            @click="onChoiceClick({ questionId: index, answerId: 2 })"
-            :class="{
-              'is-active': choiceIsActive({ questionId: index, answerId: 2 })
-            }"
-            class="question-choice"
-          >
-            2 - Rarement
-          </div>
-          <div
-            @click="onChoiceClick({ questionId: index, answerId: 3 })"
-            :class="{
-              'is-active': choiceIsActive({ questionId: index, answerId: 3 })
-            }"
-            class="question-choice"
-          >
-            3 - Parfois
-          </div>
-          <div
-            @click="onChoiceClick({ questionId: index, answerId: 4 })"
-            :class="{
-              'is-active': choiceIsActive({ questionId: index, answerId: 4 })
-            }"
-            class="question-choice"
-          >
-            4 - Souvent
-          </div>
-          <div
-            @click="onChoiceClick({ questionId: index, answerId: 5 })"
-            :class="{
-              'is-active': choiceIsActive({ questionId: index, answerId: 5 })
-            }"
-            class="question-choice"
-          >
-            5 - Très vrai
+            <button
+              class="button"
+              :class="{
+                'is-warning': choiceIsActive({
+                  questionId: questionIndex,
+                  answerId: choiceIndex + 1
+                })
+              }"
+              @click="
+                onChoiceClick({
+                  questionId: questionIndex,
+                  answerId: choiceIndex + 1
+                })
+              "
+            >
+              {{ choice }}
+            </button>
           </div>
         </div>
       </div>
       <div style="padding-top:40px;" class="control has-text-centered">
-        <button @click="onSubmit" class="button is-large is-info">
-          Calculer mon score final
+        <button
+          style="margin: 40px 0"
+          @click="onSubmit"
+          class="button is-large is-info"
+        >
+          CALCULER MON SCORE FINAL
         </button>
       </div>
     </template>
+
     <template v-if="showResults === true">
-      <div class="back" @click="onBackClick">< retour au questionnaire</div>
+      <div class="button" @click="onBackClick">< retour au questionnaire</div>
       <div class="results">
         <p>score total: {{ result }}</p>
-        <p>
-          <img src="https://media.giphy.com/media/3jmkremp3N2ow/giphy.gif" />
-        </p>
       </div>
     </template>
   </div>
 </template>
 
 <script>
+import questions from "../questions";
+const choices = [
+  "Pas du tout vrai",
+  "Rarement",
+  "Parfois",
+  "Souvent",
+  "Très vrai"
+];
+
 export default {
   data() {
     return {
@@ -80,6 +73,7 @@ export default {
   },
   created() {
     this.questions = questions;
+    this.choices = choices;
   },
   methods: {
     calculateScore() {
@@ -105,20 +99,23 @@ export default {
       return false;
     },
     onSubmit() {
-      this.calculateScore();
+      if (Object.keys(this.answers).length < questions.length) {
+        const missingNumber =
+          questions.length - Object.keys(this.answers).length;
+        alert(
+          `Il y encore ${missingNumber} question${
+            missingNumber > 1 ? "s" : ""
+          } sans réponse, vous devez répondre à toutes les questions pour que nous puissons calculer votre score. `
+        );
+      } else {
+        this.calculateScore();
+      }
     },
     onBackClick() {
       this.showResults = false;
     }
   }
 };
-
-const questions = [
-  "J'ai souvent réussi à un test ou à accomplir une tâche alors que j'avais peur de ne pas y arriver",
-  "Je peux donner l'impression d'être plus compétent-e que je ne le suis vraiment",
-  "J'évite les évaluations quand c'est possible et je suis terrifié-e que les autres m'évaluent",
-  "Quand des gens me félicitent pour quelque chose que j'ai accompli, j'ai peur de ne pas être capable d'être à la hauteur de leurs attentes dans le futur"
-];
 </script>
 
 <style scoped>
@@ -130,27 +127,15 @@ const questions = [
 .question {
   padding-top: 40px;
 }
-.question-choices {
-  display: flex;
-}
 
-.question-choice {
-  border: solid silver 1px;
-  margin: 10px;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.is-active {
-  background: lightblue;
+@media screen and (max-width: 769px) {
+  .question-choice button {
+    min-width: 300px;
+  }
 }
 
 .results {
   font-size: 70px;
   padding: 40px;
-}
-
-.back {
-  cursor: pointer;
 }
 </style>
