@@ -1,16 +1,23 @@
 <template>
   <div class="imposteur-form">
     <template v-if="showResults === false">
-      <p>
-        Le <em>Test de l’Imposteur</em> a été développé pour aider les personnes
-        à déterminer si elles ont ou non des caractéristiques du Phénomène de
-        l’Imposteur et, si c’est le cas, à quel point elles en souffrent.
-      </p>
-      <div
-        class="question"
-        v-for="(question, questionIndex) in questions"
-        :key="questionIndex"
-      >
+      <div class="content">
+        <p style="font-weight:bold">Durée du test : 5 minutes - 20 questions</p>
+        <p>
+          Le
+          <em>Test de l’Imposteur</em> a été développé pour aider les personnes à déterminer si elles ont ou non des caractéristiques du syndrome de l'imposteur et, si c’est le cas, à quel point elles en souffrent.
+        </p>
+        <p>
+          Répondez le plus sincèrement et
+          <strong>spontanément</strong> possible à toutes les questions (la première réponse qui vous vient est la bonne). Le résultat vous sera communiqué immédiatement !
+        </p>
+        <p class="help" style="font-style:italic">
+          Tiré de The Impostor Phenomenon: When Success Makes You Feel Like A Fake, p20-22, P.R. Clance,
+          185 Toronto, Bantham Books. Coyright 1985 Pauline Rose Clance, PhD, ABPP.
+          Traduction française par Ars Maëlle du document disponible en ligne sur le site de l’auteur.
+        </p>
+      </div>
+      <div class="question" v-for="(question, questionIndex) in questions" :key="questionIndex">
         <h2 class="title is-5">{{ question }}</h2>
         <div class="columns">
           <div
@@ -32,9 +39,7 @@
                   answerId: choiceIndex + 1
                 })
               "
-            >
-              {{ choice }}
-            </button>
+            >{{ choice }}</button>
           </div>
         </div>
       </div>
@@ -43,61 +48,75 @@
           style="margin: 40px 0"
           @click="onSubmit"
           class="button is-large is-info submit"
-        >
-          CALCULER MON SCORE
-        </button>
+        >CALCULER MON SCORE</button>
       </div>
     </template>
 
     <template v-if="showResults === true">
-      <h2 style="margin:40px 0" class="title is-1 has-text-centered">
-        votre score : {{ result }} / 100
-      </h2>
+      <h2
+        style="margin:40px 0"
+        class="title is-1 has-text-centered"
+      >votre score : {{ result }} / 100</h2>
 
       <p>
-        Plus le score est élevé, plus le phénomène de l’imposteur interfère
+        Plus le score est élevé, plus le syndrome de l'imposteur interfère
         fréquemment et lourdement dans la vie d’une personne.
       </p>
 
       <div style="margin:40px 0" class="results content">
-        <h3 v-show="result < 41">
-          Vous présentez peu de caractéristiques de l’Imposteur.
-        </h3>
-        <h3 v-show="result > 40 && result < 61">
-          Vous présentez une expérience modérée du phénomène de l’imposteur.
-        </h3>
-        <h3 v-show="result > 60">
-          Vous faites souvent d’intenses expériences du phénomène de
-          l’Imposteur.
+        <h3 v-show="result < 41">Vous présentez peu de caractéristiques du syndrome de l’imposteur.</h3>
+        <h3
+          v-show="result > 40 && result < 61"
+        >Vous présentez une expérience modérée du syndrome de l'imposteur.</h3>
+        <h3
+          v-show="result > 60 && result < 81"
+        >Vous faites fréquemment l'expérience du syndrome de l'imposteur</h3>
+        <h3 v-show="result > 80">
+          Vous faites souvent d’intenses expériences du syndrome de
+          l’imposteur.
         </h3>
       </div>
 
       <div class="content">
         <p>
-          Si le total est de 40 ou moins, le répondant a peu de caractéristiques
-          de l’Imposteur ; si le résultat est entre 41 et 60, le répondant a une
-          expérience modérée du phénomène de l’imposteur ; un score entre 61 et
-          80 signifie que le répondant a des sentiment d’imposteur ; et un score
-          supérieur à 80 signifie que le répondant a souvent d’intenses
-          expériences du phénomène de l’Imposteur. Plus le score est élevé, plus
-          le Phénomène de l’imposteur interfère fréquemment et lourdement dans
-          la vie d’une personne.
+          Si le total est de
+          <strong>40 ou moins</strong>, le répondant a peu de caractéristiques du syndrome de l'imposteur.
         </p>
+        <p>
+          Si le résultat est
+          <strong>entre 41 et 60</strong>, le répondant a une expérience modérée du syndrome de l'imposteur.
+        </p>
+        <p>
+          Un score
+          <strong>entre 61 et 80</strong> signifie que le répondant fait fréquemment l'expérience du syndrome de l’imposteur.
+        </p>
+        <p>
+          Un score
+          <strong>supérieur à 80</strong> signifie que le répondant a souvent d’intenses expériences du syndrome de l'imposteur.
+        </p>
+        <p>Comment est calculé le score ? Chaque réponse apporte entre 1 (« pas du tout vrai ») à 4 points (très vrai).</p>
+
         <div style="margin-top:40px" class="has-text-centered">
-          <a
-            href="https://syndromeimposteur.fr"
-            class="submit button call-to-action is-info is-large"
-          >
-            Comment se libérer du syndrome de l'imposteur ?
-          </a>
+          <div class="columns">
+            <div class="column">
+              <a
+                href="https://blog.syndromeimposteur.fr/post/comment-interpreter-votre-resultat-au-test-de-clance"
+                class="submit button call-to-action is-primary is-medium"
+              >En savoir plus sur mon résultat</a>
+            </div>
+            <div class="column">
+              <a
+                href="https://syndromeimposteur.fr"
+                class="submit button call-to-action is-info is-medium"
+              >Comment se libérer du syndrome de l'imposteur ?</a>
+            </div>
+          </div>
         </div>
         <div style="margin-top:40px" class="has-text-centered">
           <button
             class="submit button call-to-action is-large"
             @click="onBackClick"
-          >
-            Revenir au questionnaire
-          </button>
+          >Revenir au questionnaire</button>
         </div>
       </div>
     </template>
@@ -171,7 +190,7 @@ export default {
 
 <style scoped>
 .question {
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
 .submit {
