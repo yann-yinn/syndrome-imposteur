@@ -16,7 +16,7 @@ export default [
   "Quand j’ai réussi quelque chose et reçu de la reconnaissance pour cet accomplissement, je doute d’être capable de répéter ce succès",
   "Si je reçois beaucoup d’éloges et de reconnaissance pour quelque chose que j’ai accompli, j’ai tendance à minimiser l’importance de ce que j’ai fait.",
   "Je compare souvent mes capacités à celles de mon entourage et je pense qu’ils pourraient être plus intelligents que moi",
-  "Je m’inquiète souvent de ne pas réussir un projet ou un examen alors que mon entourage à confiance dans l’idée que je vais y arriver.",
+  "Je m’inquiète souvent de ne pas réussir un projet ou un examen alors que mon entourage a confiance dans l’idée que je vais y arriver.",
   "Si je suis sur le point de recevoir une promotion ou une forme de reconnaissance, j’hésite à le dire aux autres avant que ce soit un fait accompli. ",
   "Je me sens mal et découragé(e) si je ne suis pas « le/la meilleur(e) » ou au moins « très spécial(e) » dans les situations qui impliquent la réussite."
 ];
