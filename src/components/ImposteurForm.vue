@@ -124,7 +124,7 @@
               >-->
 
           <a
-            href="https://programme.syndromeimposteur.fr"
+            href="https://aureliedasilva.kartra.com/page/accueil"
             class="submit button call-to-action is-info is-large"
           >
             Découvrez votre profil parmi les 5 types de syndrome de l'imposteur
