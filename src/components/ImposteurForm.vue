@@ -39,13 +39,13 @@
               :class="{
                 'is-warning': choiceIsActive({
                   questionId: questionIndex,
-                  answerId: choiceIndex + 1
-                })
+                  answerId: choiceIndex + 1,
+                }),
               }"
               @click="
                 onChoiceClick({
                   questionId: questionIndex,
-                  answerId: choiceIndex + 1
+                  answerId: choiceIndex + 1,
                 })
               "
             >
@@ -90,6 +90,21 @@
         </h3>
       </div>
 
+      <div style="margin:40px 0;" class="has-text-centered">
+        <!--<a
+                href="https://blog.syndromeimposteur.fr/post/comment-interpreter-votre-resultat-au-test-de-clance"
+                class="submit button call-to-action is-primary is-medium"
+                >En savoir plus sur mon résultat</a
+              >-->
+
+        <a
+          href="https://aureliedasilva.kartra.com/page/accueil"
+          class="submit button call-to-action is-warning is-large"
+        >
+          Découvrez VOTRE profil parmi les 5 Types de Syndrome de l'Imposteur
+        </a>
+      </div>
+
       <div class="content">
         <p>
           Si le total est de
@@ -117,20 +132,6 @@
         </p>
 
         <div style="margin-top:40px" class="has-text-centered">
-          <!--<a
-                href="https://blog.syndromeimposteur.fr/post/comment-interpreter-votre-resultat-au-test-de-clance"
-                class="submit button call-to-action is-primary is-medium"
-                >En savoir plus sur mon résultat</a
-              >-->
-
-          <a
-            href="https://aureliedasilva.kartra.com/page/accueil"
-            class="submit button call-to-action is-info is-large"
-          >
-            Découvrez votre profil parmi les 5 types de syndrome de l'imposteur
-          </a>
-        </div>
-        <div style="margin-top:40px" class="has-text-centered">
           <button
             class="submit button call-to-action is-large"
             @click="onBackClick"
@@ -150,7 +151,7 @@ const choices = [
   "Rarement",
   "Parfois",
   "Souvent",
-  "Très vrai"
+  "Très vrai",
 ];
 
 export default {
@@ -158,7 +159,7 @@ export default {
     return {
       answers: {},
       result: 0,
-      showResults: false
+      showResults: false,
     };
   },
   created() {
@@ -167,17 +168,18 @@ export default {
   },
   methods: {
     calculateScore() {
-      this.showResults = true;
       let result = 0;
       for (let [, score] of Object.entries(this.answers)) {
         result = result + score;
       }
       this.result = result;
+      this.showResults = true;
+      window.scrollTo(0, 0);
     },
     onChoiceClick({ questionId, answerId }) {
       this.answers = {
         ...this.answers,
-        [questionId]: answerId
+        [questionId]: answerId,
       };
     },
     choiceIsActive({ questionId, answerId }) {
@@ -203,8 +205,8 @@ export default {
     },
     onBackClick() {
       this.showResults = false;
-    }
-  }
+    },
+  },
 };
 </script>
 
