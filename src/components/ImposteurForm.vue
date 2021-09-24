@@ -98,10 +98,10 @@
               >-->
 
         <a
-          href="https://aureliedasilva.kartra.com/page/accueil"
+          href="https://aureliedasilva.kartra.com/page/kit-demarrage"
           class="submit button call-to-action is-warning is-large"
         >
-          Découvrez VOTRE profil parmi les 5 Types de Syndrome de l'Imposteur
+          Recevez gratuitement votre Kit 100% Serein.e Anti-Syndrome de l’Imposteur
         </a>
       </div>
 
