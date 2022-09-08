@@ -101,7 +101,7 @@
           href="https://aureliedasilva.kartra.com/page/kit-demarrage"
           class="submit button call-to-action is-warning is-large"
         >
-          Recevez gratuitement votre Kit 100% Serein.e Anti-Syndrome de l’Imposteur
+          Formation Offerte "Se libérer du Syndrome de l'Imposteur"
         </a>
       </div>
 
