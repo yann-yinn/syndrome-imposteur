@@ -99,9 +99,8 @@
         >
           Plus de 70/100? Réservez votre APPEL DECLIC offert
         </a>
-        <!-- appel dédlic offert si > 70%-->
         <a
-          v-if="result < 70"
+          v-else
           href="https://aureliedasilva.kartra.com/page/kit-demarrage"
           class="submit button call-to-action is-warning is-large"
         >
