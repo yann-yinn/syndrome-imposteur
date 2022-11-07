@@ -91,17 +91,22 @@
       </div>
 
       <div style="margin:40px 0;" class="has-text-centered">
-        <!--<a
-                href="https://blog.syndromeimposteur.fr/post/comment-interpreter-votre-resultat-au-test-de-clance"
-                class="submit button call-to-action is-primary is-medium"
-                >En savoir plus sur mon résultat</a
-              >-->
-
+        <!-- appel dédlic offert si > 70%-->
         <a
-          href="https://calendly.com/aurelie-da-silva/appel-declic-45?month=2022-11"
+          v-if="result > 69"
+          href="https://calendly.com/aurelie-da-silva/appel-declic-45"
           class="submit button call-to-action is-warning is-large"
         >
           Plus de 70/100? Réservez votre APPEL DECLIC offert
+        </a>
+        <!-- appel dédlic offert si > 70%-->
+        <a
+          v-if="result < 70"
+          href="https://aureliedasilva.kartra.com/page/kit-demarrage"
+          class="submit button call-to-action is-warning is-large"
+        >
+          Télécharger gratuitement la formation "Se libérer du syndrome de
+          l’imposteur"
         </a>
       </div>
 
@@ -161,6 +166,22 @@ export default {
       result: 0,
       showResults: false,
     };
+  },
+  watch: {
+    // pour le debug, on peut simuler un score obtenu
+    // avec un param "score" dans l'url
+    "$route.query.score": {
+      immediate: true,
+      handler: function(value) {
+        if (value) {
+          this.result = value;
+          this.showResults = true;
+        } else {
+          this.result = 0;
+          this.showResults = false;
+        }
+      },
+    },
   },
   created() {
     this.questions = questions;
