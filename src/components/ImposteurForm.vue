@@ -98,10 +98,10 @@
               >-->
 
         <a
-          href="https://aureliedasilva.kartra.com/page/kit-demarrage"
+          href="https://calendly.com/aurelie-da-silva/appel-declic-45?month=2022-11"
           class="submit button call-to-action is-warning is-large"
         >
-          Formation Offerte "Se libérer du Syndrome de l'Imposteur"
+          Plus de 70/100? Réservez votre APPEL DECLIC offert
         </a>
       </div>
 
