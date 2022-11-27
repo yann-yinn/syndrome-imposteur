@@ -54,15 +54,30 @@
           </div>
         </div>
       </div>
-      <div style="padding-top:40px;" class="control has-text-centered">
-        <button
-          style="margin: 40px 0"
-          @click="onSubmit"
-          class="button is-large is-info submit"
-        >
-          CALCULER MON SCORE
-        </button>
-      </div>
+
+      <form @submit.prevent="onSubmit">
+        <div style="padding-top:40px;" class="control">
+          <h2 class="title is-5">Quel est votre âge ?</h2>
+          <input
+            class="input is-large"
+            min="7"
+            max="120"
+            type="number"
+            name="age"
+            v-model="age"
+            required
+          />
+        </div>
+        <div style="padding-top:40px;" class="control has-text-centered">
+          <button
+            type="submit"
+            style="margin: 40px 0"
+            class="button is-large is-info submit"
+          >
+            CALCULER MON SCORE
+          </button>
+        </div>
+      </form>
     </template>
 
     <template v-if="showResults === true">
@@ -91,21 +106,21 @@
       </div>
 
       <div style="margin:40px 0;" class="has-text-centered">
-        <!-- appel dédlic offert si > 70%-->
+        <!-- appel déclic offert si resultat > 70%-->
         <a
-          v-if="result > 69"
+          v-if="result > 69 && age > 20"
           href="https://calendly.com/aurelie-da-silva/appel-declic-45?utm_source=test-syndrome-imposteur"
           class="submit button call-to-action is-warning is-large"
         >
           Plus de 70/100? Réservez votre APPEL DECLIC offert
         </a>
         <a
-          v-else
-          href="https://aureliedasilva.kartra.com/page/kit-demarrage"
+          v-if="result < 70 || age < 21"
+          href="https://aureliedasilva.podia.com/9-techniques-anti-syndrome-de-l-imposteur"
           class="submit button call-to-action is-warning is-large"
         >
-          Télécharger gratuitement la formation "Se libérer du syndrome de
-          l’imposteur"
+          Découvrez 9 techniques contre-intuitives pour se libérer du syndrome
+          de l’imposteur
         </a>
       </div>
 
@@ -163,6 +178,7 @@ export default {
     return {
       answers: {},
       result: 0,
+      age: null,
       showResults: false,
     };
   },
@@ -181,6 +197,15 @@ export default {
         }
       },
     },
+    // pour le debug, on peut ajouter l'âge dans l'url
+    "$route.query.age": {
+      immediate: true,
+      handler: function(value) {
+        if (value) {
+          this.age = value;
+        }
+      },
+    },
   },
   created() {
     this.questions = questions;
@@ -194,7 +219,6 @@ export default {
       }
       this.result = result;
       this.showResults = true;
-      window.scrollTo(0, 0);
     },
     onChoiceClick({ questionId, answerId }) {
       this.answers = {
@@ -219,9 +243,13 @@ export default {
             missingNumber > 1 ? "s" : ""
           } sans réponse, vous devez répondre à toutes les questions pour que nous puissons calculer votre score. `
         );
-      } else {
-        this.calculateScore();
+        return;
       }
+      if (!this.age) {
+        alert("Le champ âge est obligatoire");
+      }
+
+      this.calculateScore();
     },
     onBackClick() {
       this.showResults = false;
